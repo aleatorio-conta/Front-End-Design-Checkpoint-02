@@ -5,12 +5,15 @@
 }
 
 :root {
-    --primary-color: #0066ff;
-    --bg-color: #ffffff;
-    --bg-dark: #121212;
-    --text-color: #333333;
-    --text-light: #666666;
+    --primary-color: #00aaff;
+    --primary-neon: #00e5ff;
+    --bg-color: #05070d;
+    --bg-dark: #02040a;
+    --bg-card: #0d111c;
+    --text-color: #f5f7fa;
+    --text-light: #a7b0c0;
     --white: #ffffff;
+    --border-color: #1f2a3d;
     --section-padding: 80px;
     --container-width: 1200px;
     --card-gap: 20px;
@@ -34,6 +37,8 @@ section {
 .hero {
     align-items: center;
     justify-content: center;
+    background: radial-gradient(circle at top right, rgba(0, 229, 255, 0.18), transparent 35%),
+                linear-gradient(135deg, #05070d 0%, #02040a 100%);
 
     .hero-image {
         flex: 1;
@@ -49,16 +54,16 @@ section {
     }
 
     .hero-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
         .hero-category {
             text-transform: uppercase;
             font-size: 14px;
             letter-spacing: 1px;
-            color: var(--text-light);
+            color: var(--primary-neon);
             display: block;
             margin-bottom: 10px;
         }
@@ -67,6 +72,7 @@ section {
             font-size: 48px;
             margin-bottom: 20px;
             line-height: 1.2;
+            color: var(--text-color);
         }
         
         .hero-description {
@@ -90,25 +96,25 @@ section {
             }
 
             .btn-first {
-                background-color: var(--bg-dark);
-                color: var(--white);
+                background-color: var(--primary-neon);
+                color: var(--bg-dark);
             }
 
             .btn-first:hover {
-                background-color: var(--primary-color);
-                color: var(--white);
+                background-color: var(--white);
+                color: var(--bg-dark);
                 cursor: pointer;
             }
 
             .btn-second {
                 background-color: transparent;
-                color: var(--bg-dark);
-                border: 1px solid var(--bg-dark);
+                color: var(--primary-neon);
+                border: 1px solid var(--primary-neon);
             }
 
             .btn-second:hover {
-                background-color: var(--bg-dark);
-                color: var(--white);
+                background-color: var(--primary-neon);
+                color: var(--bg-dark);
                 cursor: pointer;
             }
         }
@@ -119,7 +125,7 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #f9f9f9;
+    background-color: var(--bg-dark);
 
     .areas-header {
         text-align: center;
@@ -133,7 +139,7 @@ section {
         text-transform: uppercase;
         font-size: 14px;
         letter-spacing: 1px;
-        color: var(--text-light);
+        color: var(--primary-neon);
         display: block;
         margin-bottom: 10px;
     }
@@ -141,6 +147,7 @@ section {
     .areas-title {
         font-size: 32px;
         margin-bottom: 20px;
+        color: var(--text-color);
     }    
 }
 
@@ -153,11 +160,13 @@ section {
 
     .card {
         flex: 1;
-        background-color: var(--white);
+        background-color: var(--bg-card);
         padding: 30px;
-        border: 1px solid #eeeeee;
+        border: 1px solid var(--border-color);
         display: flex;
         flex-direction: column;
+        box-shadow: 0 0 25px rgba(0, 229, 255, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
 
         img {
             width: 100%;
@@ -169,6 +178,7 @@ section {
         h3 {
             margin-bottom: 15px;
             font-size: 20px;
+            color: var(--text-color);
         }
 
         p {
@@ -176,12 +186,18 @@ section {
             color: var(--text-light);
         }
     }
+
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 0 35px rgba(0, 229, 255, 0.25);
+    }
 }
 
 .about {
     align-items: center;
     justify-content: center;
     gap: 50px;
+    background-color: var(--bg-color);
 
     .about-content {
         flex: 1;
@@ -193,7 +209,7 @@ section {
             text-transform: uppercase;
             font-size: 14px;
             letter-spacing: 1px;
-            color: var(--text-light);
+            color: var(--primary-neon);
             display: block;
             margin-bottom: 10px;
         }
@@ -201,6 +217,7 @@ section {
         .about-title {
             font-size: 32px;
             margin-bottom: 20px;
+            color: var(--text-color);
         } 
 
         .about-description {
@@ -217,10 +234,11 @@ section {
                 padding-left: 25px;
                 display: flex;
                 align-items: center;
+                color: var(--text-color);
 
                 &::before {
                     content: "✓";
-                    color: var(--primary-color);
+                    color: var(--primary-neon);
                     font-weight: bold;
                     margin-right: 10px;
                 }
@@ -246,9 +264,9 @@ section {
     width: 100%;
     height: var(--footer-height);
     background-color: var(--bg-dark);
-    color: var(--white);
+    color: var(--text-light);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
 }
